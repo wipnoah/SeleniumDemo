@@ -1,4 +1,4 @@
-package com.bilbomatica.testing.training.SeleniumDemo;
+package com.bilbomatica.testing.training.seleniumDemo;
 
 import org.openqa.selenium.By;
 

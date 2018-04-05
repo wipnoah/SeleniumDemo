@@ -1,17 +1,17 @@
-package com.bilbomatica.testing.training.SeleniumDemo;
+package com.bilbomatica.testing.training.seleniumDemo;
 
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
-import java.io.IOException;
-import java.net.URL;
+import java.io.File;
 import java.util.concurrent.TimeUnit;
 
-public class BaseLocalRemoteWebDriverTest {
+public class BaseTest {
     public RemoteWebDriver driver;
     public Actions hover;
     public static long timeOut = 120;
@@ -19,11 +19,16 @@ public class BaseLocalRemoteWebDriverTest {
     public static JavascriptExecutor jse;
 
     @BeforeMethod
-    public void setUp() throws IOException {
-        DesiredCapabilities caps = DesiredCapabilities.firefox();
-        driver = new RemoteWebDriver(new
-                URL("http://0.0.0.0:4444/wd/hub"),
-                caps);
+    public void setUp() {
+        DesiredCapabilities capabilities = DesiredCapabilities.chrome();
+        System.setProperty("webdriver.chrome.driver", "src" + File.separator + "main" + File.separator + "resources" + File.separator + "chromedriver-linux");
+        driver = new ChromeDriver(capabilities);
+//        DesiredCapabilities capabilities = DesiredCapabilities.firefox();
+//        System.setProperty("webdriver.gecko.driver",
+//                "src" + File.separator + "main"
+//                        + File.separator + "resources"
+//                        + File.separator + "geckodriver-linux");
+//        driver = new FirefoxDriver(capabilities);
         wait = new LocalRemoteWebDriverWait(driver, timeOut);
         hover = new Actions(driver);
         driver.manage().deleteAllCookies();

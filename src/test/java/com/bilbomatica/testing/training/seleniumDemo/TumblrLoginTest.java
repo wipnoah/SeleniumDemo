@@ -1,6 +1,6 @@
-package com.bilbomatica.testing.training.SeleniumDemo;
+package com.bilbomatica.testing.training.seleniumDemo;
 
-import org.junit.Test;
+import org.testng.annotations.Test;
 import org.openqa.selenium.By;
 
 public class TumblrLoginTest extends  BaseLocalRemoteWebDriverTest{
