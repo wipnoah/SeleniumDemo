@@ -22,7 +22,7 @@ public class BaseLocalRemoteWebDriverTest {
     public void setUp() throws IOException {
         DesiredCapabilities caps = DesiredCapabilities.firefox();
         driver = new RemoteWebDriver(new
-                URL("http://89.0.13.41:4444/wd/hub"),
+                URL("http://0.0.0.0:4444/wd/hub"),
                 caps);
         wait = new LocalRemoteWebDriverWait(driver, timeOut);
         hover = new Actions(driver);
